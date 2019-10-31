@@ -17,6 +17,7 @@ let contactSection = document.getElementById("contact");
 mainSection.insertBefore(aboutSection, contactSection);
 
 /*ABOUT*/
+
 aboutSection.innerHTML = "";
 
 let h2About = document.createElement("h2");
@@ -38,15 +39,14 @@ h2Contact.textContent = "Contact";
 /*TABLE*/
 
 let trTable = document.querySelector("thead tr");
-
 let tdTable = document.querySelectorAll("thead td");
 
-console.log(tdTable);
-
-
-/* let thTable = document.createElement("th");
-
-trTable.replaceChild(thTable, tdTable); */
+for (let i = 0; i < tdTable.length; i++) {
+    let text = tdTable[i].innerHTML;
+    let thTable = document.createElement("th");
+    trTable.replaceChild(thTable, tdTable[i]);
+    thTable.textContent = text;
+}
 
 /*INCLUDE CSS FILE*/
 
@@ -63,8 +63,3 @@ head.appendChild(cssLink);
 
 let titleHead = document.querySelector("head title");
 titleHead.textContent = "Fruits & Vegetables Corp";
-
-/* let h1header = document.querySelector("header h1");
-h1header.textContent = "Fruits & Vegetables Corp"; */
-
-
